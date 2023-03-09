@@ -1,0 +1,23 @@
+1. const fs = require('fs')
+    1.1 读取文件内容
+            fs.readFile('文件路径/文件名称'[,'文件编码'], callback);
+            eg: fs.readFile('../css/base.css', 'UTF-8', (err, doc) => {})
+            // 如果文件读取错误，那么err就是一个错误对象，包含错误信息
+            // 如果文件读取正确，那么err就是null
+            // doc时文件读取的结果，以文本的形式显示
+2. fs.writeFile('文件路径/文件名称', '数据', callback)
+   数据表示要写入的内容，callback
+
+
+3. 路径path模块
+      3.1 首先说明一下为什么会有这个path模块的存在，因为不同的操作系统当中文件的分隔符是
+          不一样的，这样的话就有可能发生冲突，而前端的代码最终很有可能会在linux的服务器
+          上面跑，所以需要path模块，系统自动识别
+      eg: const path = require('path')
+          let finalPath = path.join('01', '02', '03', 'test.html');
+          // 01/02/03/test.html
+
+4. 在使用相对路径出现问题的时候，我们可以使用__dirname获取当前文件的绝对路径
+    eg: const fs = require('fs');
+        const path = require('path');
+        fs.readFile(path.join(__dirname, 'test.html'), 'UTF-8', (err, doc) => {})

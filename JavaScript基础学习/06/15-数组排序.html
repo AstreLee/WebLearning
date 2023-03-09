@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // 数组排序
+        // 1. 翻转数组
+        var arr = ['pink', 'red', 'blue'];
+        arr.reverse();
+        console.log(arr);
+
+        // 2. 数组排序（冒泡排序）
+        var arr1 = [13, 4, 77, 1, 7];
+        arr1.sort(function(a, b) {
+            //  return a - b; 升序的顺序排列
+            return b - a; // 降序的顺序排列
+        });
+        console.log(arr1);
+
+
+        // !important   注意了，sort()函数很特别，它对指定的数组进行排序的时候
+        // 是先将数组中的元素当成字符串看待进行排序，比如说对数组[1, 3, 10]进行
+        // 排序的时候，就会把他们当成字符串，然后从第一位开始比较，所以说排序后的结果为
+        // [1, 10, 3]，和我们预想的有点不一样，想要对数据进行排序的话，我们需要传入相应
+        // 的函数
+        var arr2 = [1, 3, 10];
+        arr2.sort();
+        console.log(arr2);
+        // 升序排序
+        arr2.sort((a, b) => a - b);
+        console.log(arr2);
+        // 降序排序
+        arr2.sort((a, b) => b - a);
+        console.log(arr2);
+    </script>
+</head>
+<body>
+</body>
+</html>

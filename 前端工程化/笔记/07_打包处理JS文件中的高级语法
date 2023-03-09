@@ -1,0 +1,12 @@
+1. 打包处理JS文件中的高级语法
+    1.1 安装babel转换器相关的包：npm i babel-loader @babel/core @babel/runtime -D
+    1.2 安装babel语法相关插件的包：npm i @babel/preset-env @babel/plugin-transform-run
+        time @babel/plugin-proposal-class-properties -D
+    1.3 在项目根目录中，创建babel配置文件babel.config.js，并初始化基本配置如下
+        module.exports = {
+            presets: ['@babel/preset-env'],
+            plugins: ['@babel/plugin-transform-runtime', '@babel/plugin-proposal-class-properties']
+        }
+    1.4 在webpack.config.js文件中的rules数组中添加如下：
+        // exclude为排除项，表示babel-loader不需要处理node_modules中的js文件
+        {test: /\.js$/, use: 'babel-loader', exclude: /node_modules/}

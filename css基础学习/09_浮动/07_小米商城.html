@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*
+        清除元素的默认样式
+         */
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        /*
+        清除li列表前面的标记
+         */
+        li {
+            list-style: none;
+        }
+        .box {
+            width: 1226px;
+            height: 550px;
+            background-color: pink;
+            margin: 0 auto;
+        }
+        .left {
+            width: 234px;
+            height: 550px;
+            background-color: purple;
+            float: left;
+        }
+        .right {
+            width: 992px;
+            height: 550px;
+            background-color: skyblue;
+            float: right;
+        }
+        .right li {
+            width: 234px;
+            height: 270px;
+            background-color: pink;
+            float: left;
+            margin-left: 14px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="left">
+        </div>
+        <ul class="right">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+        </ul>
+    </div>
+</body>
+</html>

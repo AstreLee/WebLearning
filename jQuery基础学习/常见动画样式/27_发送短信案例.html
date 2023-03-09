@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    手机号：<input type="number"/> <button>发送</button>
+    <script>
+        // 首先获取button对象
+        var btn = document.querySelector('button');
+        // 给button对象绑定事件
+        btn.addEventListener('click', function() {
+            // 首先禁用这个按钮，也就是给disabled属性值设置为true
+            this.disabled = true;
+            // 禁用三秒，每次点击的时候这个time都要重置
+            var time = 3;
+            // 设置定时器，每一秒钟执行一次回调函数
+            var timer = setInterval(function() {
+                // 如果time为0，就清除定时器
+                if (time === 0) {
+                    clearInterval(timer);
+                    // 再解除按钮的锁定
+                    btn.disabled = false;
+                    // 再将innerHTML中的内容还原
+                    btn.innerHTML = '发送';
+                } else {
+                    // 否则的话
+                    btn.innerHTML = '还剩' + time + '秒';
+                    time--;
+                }
+            }, 1000)
+        })
+    </script>
+</body>
+</html>

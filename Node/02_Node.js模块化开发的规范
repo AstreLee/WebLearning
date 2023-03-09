@@ -1,0 +1,18 @@
+1. Node.js规定一个JavaScript文件就是一个模块，模块内部定义的变量和函数无法默认
+   情况下在外部是无法得到的
+
+2. 模块内部的成员使用exports对象进行成员导出，使用require方法导入模块
+   eg:
+   a.js：
+   const add = (n1, n2) => n1 + n2;
+   // 第一个add是exports对象的属性，由用户自己定义，第二个add是方法
+   [module.]exports.add = add;
+
+   b.js：
+   const a = require('./a.js');  // 这个a就是exports导出的对象，b.js中的js是可以省略的
+   console.log(a.add(1, 2));  // 调用a对象的add()方法
+
+   PS: exports对象实际上是module.exports对象地址的引用，最后还是以module.exports为准
+       如果修改了module.exports指向的对象的话，那么最终还是以module.exports对象为准
+
+3. 实际上JS还可以通过const func = name => `hello, ${name}`;进行替换

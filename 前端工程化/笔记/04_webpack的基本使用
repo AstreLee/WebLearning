@@ -1,0 +1,52 @@
+1. 在项目中安装和配置webpack
+    1.1 运行 npm install webpack webpack-cli -D命令，安装webpack相关的包
+    1.2 在项目根目录中，创建名为webpack.config.js的webpack的配置文件
+    1.3 在webpack的配置文件中，初始化如下基本配置：
+            module.exports = {mode: 'development'  // mode用来指定构建模式}
+                1.3.1 development表示不会进行代码压缩与混淆，所以构建的速度比较快
+                1.3.2 production表示产品，也就是会进行代码压缩与混淆，所以构建的速度比较那慢
+    1.4 在package.json配置文件中的scripts节点下，新增dev脚本如下：
+        "scripts": {"dev": "webpack"  // scripts节点下的脚本可以通过npm run运行}
+    1.5 在终端中运行npm run dev命令就可以启动webpack项目进行打包
+
+2. 关于配置打包的入口与出口：
+    打包的入口文件默认就是src下的index.js
+    打包的出口文件默认就是dist下的main.js
+
+    如果要修改打包的入口与出口，可以在webpack.config.js中配置如下内容：
+    const path = require('path')  // 导入node.js中专门操作路径的第三方模块
+    module.exports = {
+        entry: path.join(__dirname, './src/index.js')  // 打包入口文件路径
+        output: {
+            path: path.join(__dirname, './dist')  // 输出文件的存放路径
+            filename: "test.js"  // 输出文件名
+        }
+    }
+
+3. 配置自动打包的功能
+    3.1 运行 npm install webpack-dev-server -D 命令安装自动打包的工具
+    3.2 修改package.json配置文件中的scripts节点下的dev为webpack-dev-server
+    3.3 将src目录下的index.html文件中的script标签引入的路径修改为:"/test.js"
+    3.4 运行npm run dev命令重新进行打包
+    3.5 在浏览器中访问http://localhost:8080重新查看打包结果
+        PS: 注意两点：1. webpack-dev-server会启动一个实时打包的http服务器
+                      2. webpack-dev-server打包生成的输出文件，默认放到了项目
+                         根目录下，而且是虚拟的看不见的，所以IDE会报无法解析文件的错误
+    3.6 ctrl + C终止服务
+
+4. html-webpack-plugin生成预览页面
+    4.1 运行 npm install html-webpack-plugin -D 命令，安装相关页面插件
+    4.2 修改webpack.config.js文件头部区域，添加如下内容：
+        // 导入生成预览页面的插件，得到一个构造函数
+        const HtmlWebpackPlugin = require('html-webpack-plugin')
+        const htmlPlugin = new HtmlWebpackPlugin({  // 创建插件的实例对象
+            template: './src/index.html',  // 指定要用到的模板文件
+            filename: 'index.html'  // 指定生成文件的名称，该文件在内存中，但是在目录中不会显示
+        })
+    4.3 紧接着修改webpack.config.js文件中向外暴露的配置对象，新增加如下节点：
+        module.exports = {plugins: [htmlPlugins]}  // plugins数组表示打包时会用到的一些插件
+
+5. 配置package.json文件使得项目打包完毕后可以自动弹出页面
+    --open：表示自动打开
+    --host：配置主机IP地址
+    --port：配置端口号

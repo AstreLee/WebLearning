@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /* 注意到不管/左右两侧操作数的类型，除的断的话，就不会带末尾的.0 */
+        alert(4 / 2);  // 2
+        alert(4.0 / 2);  // 2
+        alert(4 / 2.0);  // 2
+        alert(4.0 / 2.0);  // 2
+
+        /*  注意到即使两侧都是整数，除不断的还是按照原来的形式保存 */
+        alert(4 / 3);  // 1.3333333...
+        alert(4 / 3.0);  // 1.333333...
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .search {
+            position: relative;
+            width: 200px;
+            margin: 100px auto;
+        }
+
+        .search input {
+            width: 180px;
+            height: 20px;
+            font-size: 16px;
+            outline: 0;
+            border: none;
+            border-bottom: 1px dashed rgba(0, 0, 0, .2);
+        }
+
+        .con {
+            display: none;
+            position: absolute;  /* 绝对定位脱标，撑不开正常的父盒子的 */
+            top: -45px;
+            width: 200px;
+            height: 30px;
+            font-size: 22px;
+            color: #333;
+            border: 1px solid rgba(0, 0, 0, .2);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+        }
+
+        .con:before {
+            content: '';
+            width: 0;
+            height: 0;
+            position: absolute;
+            top: 30px;
+            left: 25px;
+            border: 6px solid;
+            border-color: white transparent transparent;
+        }
+    </style>
+</head>
+<body>
+    <div class="search">
+        <div class="con"></div>
+        <input type="text" placeholder="请输入订单号" />
+    </div>
+    <script>
+        // 设置JS样式
+        // 首先获取input控件对象和con对象
+        let input = document.querySelector('input');
+        let con = document.querySelector('.con');
+
+        // 1. 聚焦的时候如果文本框里面有内容的话我们就显示放大框，没有内容的话就继续隐藏
+        input.addEventListener('focus', function() {
+            if (input.value !== '') {
+                con.style.display = 'block';
+            }
+        })
+
+        // 2. 失焦的时候不管三七二十一隐藏放大框
+        input.addEventListener('blur', function() {
+            con.style.display = 'none';
+        })
+
+        // 3. 再就是设置键盘输入内容的时候时时更新我们的放大框
+        input.addEventListener('keyup', function() {
+            if (this.value !== '') {
+                con.innerHTML = this.value;
+                con.style.display = 'block';
+            } else {
+                con.style.display = 'none';
+            }
+        })
+    </script>
+</body>
+</html>

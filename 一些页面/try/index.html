@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /* 清除元素外面默认的内边距和外边距 */
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        /* 去掉所有链接的下划线 */
+        a {
+            text-decoration: none;
+        }
+
+        /* 清除浮动带来的影响 */
+        .clearfix:before,
+        .clearfix:after {
+            content: "";
+            display: block;
+        }
+        .clearfix:after {
+            clear: both;
+        }
+        .clearfix:after {
+            *zoom: 1;
+        }
+
+        /* ----------------------header部分样式设置------------------------ */
+        /* 头部的链接a全部去掉下划线样式并且指定链接中的字体大小为16px */
+        .header-nav a {
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        /* 清除li标签前面小圆点的样式*/
+        li {
+            list-style: none;
+        }
+
+        /* 设置版心 */
+        .w {
+            width: 1000px;
+            margin: 0 auto;
+            background-color: #e0e0e0;
+        }
+
+        /* 设置头部盒子的高度，宽度默认就是浏览器的宽度 */
+        .header {
+            height: 50px;
+            background-color: #b2c5e3;
+        }
+
+        .header-nav {
+            height: 100%;
+            /* 设置浮动改实际上就是类似inline-block，宽度靠里面的内容撑起来，同时还可以靠右 */
+            float: right;
+        }
+
+        .header-nav>li {
+            position: relative;
+            float: left;
+            width: 100px;
+            height: 50px;
+            text-align: center;
+        }
+
+        .header-nav>li>a:hover {
+            background-color: orange;
+        }
+
+        .header-nav li a {
+            display: block;  /* 要先转化为块级元素才能进行设置 */
+            width: 100%;
+            height: 100%;
+            color: white;
+            line-height: 50px;
+        }
+
+        .header-nav ul {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            width: 100%;  /* 设置和li一样的宽度 */
+            border-left: 1px solid #FECC5B;
+            border-right: 1px solid #FECC5B;
+        }
+
+        .header-nav ul li {
+            border-bottom: 1px solid #FECC5B;
+        }
+
+        .header-nav ul li a:hover {
+            background-color: #FFF5DA;
+        }
+
+        /* --------------------box1样式设置, 轮播图--------------------- */
+        .box1 {
+            height: 300px;
+        }
+
+        /* --------------------box2样式设置，案例展示 -----------------  */
+        .box2 {
+            height: 200px;
+            display: flex;
+        }
+        .box2-1 {
+            position: relative;
+        }
+        .box2-1-up {
+            height: 50px;
+            margin-bottom: 20px;
+        }
+        .box2-1-up-left {
+            position: absolute;
+            top: 20px;
+            left: 10px;
+        }
+        .box2-1-up-right {
+            position: absolute;
+            top: 20px;
+            right: 10px;
+        }
+        .box2-1-down {
+            height: 100px;
+        }
+        .box2-1-down-left {
+            float: left;
+        }
+        .box2-1-down-right {
+            float: right;
+        }
+        .item {
+            flex: 1;
+        }
+    </style>
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+    <!-- 设置头部导航栏 -->
+    <div class="header">
+        <img src="images/商标.png" style="width: 100px; height: 50px;"/>
+        <ul class="header-nav clearfix">
+            <li>
+                <a href="index.html">网站首页</a>
+            </li>
+            <li>
+                <a href="#">公司首页</a>
+                <ul>
+                    <li><a>公司荣誉</a></li>
+                    <li><a>公司文化</a></li>
+                    <li><a>服务宗旨</a></li>
+                    <li><a>服务内容</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">产品展示</a>
+                <ul>
+                    <li><a href="#">一级设备</a></li>
+                    <li><a href="#">二级设备</a></li>
+                    <li><a href="#">三级设备</a></li>
+                    <li><a href="#">三级设备</a></li>
+                    <li><a href="#">五级设备</a></li>
+                    <li><a href="#">六级设备</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">新闻动态</a>
+                <ul>
+                    <li><a href="#">公司新闻</a></li>
+                    <li><a href="#">行业新闻</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">应用案例</a>
+                <ul>
+                    <li><a href="#">案例1</a></li>
+                    <li><a href="#">案例2</a></li>
+                    <li><a href="#">案例3</a></li>
+                    <li><a href="#">案例4</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">联系我们</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 设置轮播图盒子 -->
+    <div class="box1 w">
+        <img src="images/轮播图1.jpg" id="imagesTurn" style="height: 300px; width: 1000px;"/>
+    </div>
+
+    <!-- 设置展示页面1 -->
+    <div class="box2 w">
+        <div class="box2-1 item">
+            <div class="box2-1-up">
+                <span class="box2-1-up-left">项目展示</span>
+                <span class="box2-1-up-right"><a href="#">更多+</a></span>
+            </div>
+            <div class="box2-1-down">
+                <div class="box2-1-down-left">
+                    <img src="images/img.png" style="width: 150px; height: 100px;" />
+                </div>
+                <div class="box2-1-down-right">
+                    <ul>
+                        <li>123456</li>
+                        <li>123456</li>
+                        <li>123456</li>
+                        <li>123456</li>
+                        <li>123456</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="box2-2 item"></div>
+        <div class="box2-3 item"></div>
+    </div>
+    <script>
+        /* 首页导航栏下拉框设置 */
+        $(function() {
+            // 1. 设置鼠标覆盖时候的样式
+            $(".header-nav>li").mouseover(function() {
+                $(this).children("ul").show();
+            })
+            // 2. 设置鼠标移开的时候的样式
+            $(".header-nav>li").mouseout(function() {
+                $(this).children("ul").hide();
+            })
+        })
+
+        /* 轮播图自动播放设置(有一说一真的很粗糙) */
+        $(function() {
+            let currentImage = 0;
+            let imageCounts = 3;
+            setTimeout(selfChangeImages, 1000);
+            function selfChangeImages() {
+                if (currentImage < imageCounts) {
+                    ++currentImage;
+                } else {
+                    currentImage = 1;
+                }
+                let imageObj = document.getElementById("imagesTurn");
+                imageObj.src = "images/" + "轮播图" + currentImage + ".jpg";
+                setTimeout(selfChangeImages, 3000);
+            }
+        })
+    </script>
+</body>
+</html>

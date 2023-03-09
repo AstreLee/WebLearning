@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #father #son {
+            color: orange;
+        }
+        div.c1 p.c2 {
+            color: red;
+        }
+        #father {  /* 就算有!important，但是father只是选中了父亲，没有选中孩子 */
+            color: blue !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="father" class="c1">
+        <p id="son" class="c2">
+            这一行是什么颜色呢
+        </p>
+    </div>
+</body>
+</html>

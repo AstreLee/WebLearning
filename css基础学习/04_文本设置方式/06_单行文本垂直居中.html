@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    a {
+      display: inline-block;  /*转换为行内块元素最好，因为转化为块内元素虽然可以设置高，但是一行只能放一个*/
+      width: 100px;
+      height: 30px;
+      background-color: pink;
+      text-align: center;
+      text-decoration: none;
+      line-height: 30px;
+    }
+    a:hover {
+      background-color: orange;  /*这个是在修改背景颜色 */
+      color: yellow;  /*这个是在修改文字的颜色 */
+    }
+  </style>
+</head>
+<body>
+<a href="#">体育</a>
+<a href="#">新闻</a>
+<a href="#">娱乐</a>
+<!--
+简而言之，让文字的高度等于盒子的高度，就能让文字垂直居中
+行高 = 高度：垂直居中
+行高 > 高度：文字偏下
+行高 < 高度：文字偏上
+-->
+</body>
+</html>

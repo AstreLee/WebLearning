@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*
+        HTML中可以使用<i>或<em>标签使字体倾斜
+        CSS中可以通过fontStyle来进行设置
+        fontStyle属性有：
+            > normal显示标准字体样式
+            > italic显示倾斜字体样式
+        注意：
+            实际开发过程中，很少使用文字加斜体，反而喜欢将斜体i,em等标签改为正常形式
+         */
+        .fontStyle {
+            font-style: italic;
+        }
+        em {
+            font-style: normal;
+        }
+    </style>
+</head>
+<body>
+    <div class="fontStyle">123456</div>
+    <em>本来是一个斜体的，但是加上标签选择器的作用后就是正常形式了</em>
+</body>
+</html>

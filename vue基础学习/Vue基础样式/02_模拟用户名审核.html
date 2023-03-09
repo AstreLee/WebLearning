@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <sapn>用户名: </sapn>
+        <span><input type="text" v-model.lazy="uname"/></span>  <!-- 双向绑定，同时使用修饰符lazy将input转向change-->
+        <span v-text="message"></span>
+    </div>
+    <script src="VueJs/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                uname: '',
+                message: '',
+            },
+            methods: {
+                // 本来是要调用后端的接口的，但是这里我们可以通过定时器模拟接口的调用
+                // 这里不能使用箭头函数，因为箭头函数里面是没有this的
+                checkName: function() {
+                    // 由于定时器里面的this指向的是windows，所以我们要先把this保存下来
+                    var that = this;
+                    setTimeout(() => {
+                        if (that.uname === "admin") {
+                            that.message = "该用户名已经存在，请重新输入!";
+                        } else {
+                            that.message = "用户名创建成功!";
+                        }
+                    }, 2000)
+                }
+            },
+            // 创建一个watch监听器，只要uname发生了变化，就去调用我们模拟的后端接口
+            watch: {
+                // 注意这里不能使用箭头函数，箭头函数里面没有this
+                uname: function() {
+                    this.checkName();  // 只要是Vue里面定义的内容都要加上this
+                    this.message = "正在检验中...";
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+1. node_modules表示依赖包目录
+2. public表示静态资源目录，比如说主页和图标
+3. src表示组件源代码目录
+    3.1 assets表示可能用到的资源，比如一些样式表或者是图标
+    3.2 components表示会用到的一些组件
+    3.3 router
+        3.3.1 router.js 相关的路由就配置在这里面
+    3.4 views表示视图
+        3.4.1 其中App.vue是根组件，承载了项目中所有的组件
+        3.4.2 main.js是入口文件
+4. babel.config.js表示Babel配置文件
+5. .eslintrc.js表示lint的语法文件
+6. .editorconfig表示编辑配置，在这里面我们可以设置首行缩进几个空格
+
+6. 通过npm run serve可以在项目测试阶段过程中就打包看下效果
+   真正上线的时候我们通过 npm run build打包上线

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button-counter></button-counter>
+        <hello-world></hello-world>
+    </div>
+    <script src="js/vue.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        /*
+          组件注册注意事项
+          如果使用驼峰式命名组件，那么在使用组件的时候，只能在字符串模板中用驼峰的方式使用组件，但是
+          在普通的标签模板中，必须使用短横线的方式使用组件
+          意思就是如果我们用驼峰命名法定义了一个组件的话
+          那么在其他组件的字符串模板中想使用这个组件的话就必须使用驼峰命名法
+          在普通的标签模板(也就是body)中必须要用短横线的方式
+        */
+        // 全局注册以后，任何一个vue实例对象都可以使用相应的组件
+        // 要注意了，这个vue实例对象是必须要有的，不然怎么使用。。。
+        Vue.component('HelloWorld', {
+            data: function () {
+                return {
+                    msg: 'HelloWorld'
+                }
+            },
+            template: '<div>{{msg}}</div>'
+        });
+        Vue.component('button-counter', {
+            data: function () {
+                return {
+                    count: 0
+                }
+            },
+            template: ' <div> <button @click="handle">点击了{{ count }}次</button> <button>测试123</button> <HelloWorld></HelloWorld> </div>',
+            methods: {
+                handle: function () {
+                    this.count += 2;
+                }
+            }
+        })
+        var vm = new Vue({
+            el: '#app',
+            data: {}
+        });
+    </script>
+</body>
+</html>

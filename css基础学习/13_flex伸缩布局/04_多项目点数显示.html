@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box1 {
+            display: flex;
+            width: 90px;
+            height: 90px;
+            background-color: pink;
+        }
+        .item1 {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: orange;
+        }
+        .item1:nth-child(2) {
+            align-self: center;
+        }
+        .item1:nth-child(3) {
+            align-self: flex-end;
+        }
+
+        .box2 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            align-content: space-between;
+            width: 90px;
+            height: 90px;
+            background-color: pink;
+        }
+        .item2 {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: orange;
+        }
+
+        .box3 {
+            display: flex;
+            justify-content: space-between;
+            width: 90px;
+            height: 45px;
+            background-color: pink;
+        }
+        .box33 {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            width: 90px;
+            height: 45px;
+            background-color: pink;
+        }
+        .item3 {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: orange;
+        }
+        .Box {
+            display: flex;
+            flex-wrap: wrap;
+            width: 90px;
+            height: 90px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <span class="item1"></span>
+        <span class="item1"></span>
+        <span class="item1"></span>
+    </div>
+    <hr />
+
+    <div class="box2">
+        <span class="item2"></span>
+        <span class="item2"></span>
+        <span class="item2"></span>
+        <span class="item2"></span>
+    </div>
+    <hr />
+
+    <div class="Box">
+        <div class="box3">
+            <span class="item3"></span>
+            <span class="item3"></span>
+        </div>
+        <div class="box33">
+            <span class="item3"></span>
+            <span class="item3"></span>
+        </div>
+    </div>
+    <hr />
+</body>
+</html>

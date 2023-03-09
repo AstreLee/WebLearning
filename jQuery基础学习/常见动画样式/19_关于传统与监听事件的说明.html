@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button>传统事件注册/绑定</button>
+    <button>监听事件注册/绑定</button>
+    <script>
+        let btns = document.querySelectorAll('button');
+        // 传统事件注册
+        btns[0].onclick = function() {
+            // 这个会被第二个覆盖掉
+            alert("这是传统事件注册的第一个事件处理程序!");
+        }
+        btns[0].onclick = function() {
+            alert("这是传统事件注册的第二个事件处理程序!");
+        }
+
+        // 监听事件注册
+        btns[1].addEventListener('click', function() {
+            alert("这是监听事件注册的第一个事件处理程序!");
+        })
+        btns[1].addEventListener('click', function() {
+            alert("这是监听事件注册的第二个事件处理程序!");
+        })
+    </script>
+</body>
+</html>

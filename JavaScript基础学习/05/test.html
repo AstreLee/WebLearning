@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function People(name, age, tel) {
+            this.name = name;
+            this.age = age;
+            this.tel = tel;
+            this.sing = function(a, b, c) {
+                alert("这是" + a);
+                alert("这是" + b);
+                alert("这是" + c);
+                alert("Jay");
+            }
+        }
+        var obj1 = new People('Jay', 19, 13872025579);
+        for (var k in obj1) {
+            alert(obj1[k]);
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

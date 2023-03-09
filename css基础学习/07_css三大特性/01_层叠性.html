@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            color: red;
+            font-size: 30px;
+        }
+        div {
+            color: pink;
+        }
+        /*
+        样式冲突，遵循就近原则(比如说这里的div的颜色设置pink覆盖了red)
+        样式不冲突，不会覆盖(比如说font-size的默认16px没有覆盖掉30px)
+         */
+    </style>
+</head>
+<body>
+    <div>
+        这是一个div盒子
+    </div>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        table {
+            width: 400px;
+            margin: 100px auto;
+            text-align: center;
+            border-collapse: collapse;
+        }
+
+        thead tr {
+            height: 30px;
+            background-color: skyblue;
+            font-size: 16px;
+        }
+
+        tbody tr {
+            height: 30px;
+            font-size: 12px;
+            border-bottom: 1px solid #d7d7d7;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <table>
+        <thead>
+        <tr>
+            <th>
+                <input type="checkbox" />
+            </th>
+            <th>商品</th>
+            <th>价钱</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <input type="checkbox"/>
+            </td>
+            <td>iPhone8</td>
+            <td>8000</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox"/>
+            </td>
+            <td>iPad Pro</td>
+            <td>5000</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox"/>
+            </td>
+            <td>iPad Air</td>
+            <td>2000</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox"/>
+            </td>
+            <td>Apple Watch</td>
+            <td>2000</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <script>
+        // 首先获取DOM树中的元素
+        let checkAll = document.querySelector('thead').querySelector('input');
+        let checkEach = document.querySelector('tbody').querySelectorAll('input');
+
+        // 首先设置全选框设置底下分框的样式
+        checkAll.onchange = function() {
+            // 将底下所有框的checked全部设置为true, 我们需要一个循环遍历
+            for (let i = 0; i < checkEach.length; ++i) {
+                checkEach[i].checked = this.checked;
+            }
+        }
+
+        // 再来设置底下子框如果全选的时候，全部框也要全选，由于是给所有的子框设置
+        // 所以我们需要一个循环遍历
+        // 实际上还有另外一个思路，就是当底下的框的数目已经确定以后，可以使用长度比较
+        for (let i = 0; i < checkEach.length; ++i) {
+            // 给每一个框都绑定一个事件
+            checkEach[i].onchange = function() {
+                // 首先设置一个标志变量flag
+                let flag = true;
+                // 对底下框的所有元素进行遍历
+                for (let j = 0; j < checkEach.length; ++j) {
+                    if (! checkEach[j].checked) {
+                        flag = false;
+                        break;
+                    }
+                }
+                checkAll.checked = flag;
+            }
+        }
+    </script>
+</div>
+</body>
+</html>

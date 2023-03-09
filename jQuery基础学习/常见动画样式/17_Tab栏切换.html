@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        .tab {
+            width: 978px;
+            margin: 100px auto;
+        }
+
+        .tab_list {
+            height: 39px;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+
+        .tab_list li {
+            float: left;
+            height: 39px;
+            line-height: 39px;
+            padding: 0 20px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .tab_list .current {
+            background-color: #c81623;
+            color: #fff;
+        }
+
+        .item {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+<div class="tab">
+    <div class="tab_list">
+        <ul>
+            <li class="current">商品介绍</li>
+            <li>规格与包装</li>
+            <li>售后保障</li>
+            <li>商品评价（50000）</li>
+            <li>手机社区</li>
+        </ul>
+    </div>
+    <div class="tab_con">
+        <div class="item" style="display: block;">
+            商品介绍模块内容
+        </div>
+        <div class="item">
+            规格与包装模块内容
+        </div>
+        <div class="item">
+            售后保障模块内容
+        </div>
+        <div class="item">
+            商品评价（50000）模块内容
+        </div>
+        <div class="item">
+            手机社区模块内容
+        </div>
+
+    </div>
+</div>
+<script>
+    // 首先获取元素
+    let lis = document.querySelector('.tab_list').querySelectorAll('li');
+    let divs = document.querySelector('.tab_con').querySelectorAll('div');
+    // 循环给所有的小li绑定事件
+    for (let i = 0; i < lis.length; ++i) {
+        lis[i].onclick = function() {
+            // 首先去掉所有小li的类
+            for (let j = 0; j < lis.length; ++j) {
+                lis[j].className = '';
+            }
+            // 再给自己的类设置样式
+            this.className = 'current';
+            // 给每一个小li添加一个index属性值，这样可以对应设置下面的div盒子
+            // (实际上通过循环控制变量也行，但是这里我们熟悉一下setAttribute()方法的使用)
+            this.setAttribute('index', i);
+            // 获取下标
+            let index = this.getAttribute('index');
+            // 再将下面所有的div盒子全部隐藏起来
+            for (let j = 0; j < divs.length; ++j) {
+                divs[j].style.display = 'none';
+            }
+            // 将指定下标的盒子显示出来
+            divs[index].style.display = 'block';
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* 去掉input输入框的外观 */
+input {
+    outline: none;
+}
+
+.Box {
+    width: 1000px;
+    height: 500px;
+    display: flex;
+    border: 2px dashed orange;
+    margin: 0 auto;
+}
+
+.Box .left {
+    flex: 0 0 25%;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px dashed black;
+}
+
+/* 想给table添加一个滚动条，只需要将table放在div里面，然后给div设置overflow属性为auto就可以 */
+.Box .right {
+    flex: 0 0 75%;
+    overflow: auto;
+}
+
+.item-title,
+.item-add,
+.item-del,
+.item-modify,
+.item-search {
+    flex: 1;
+    border-top: 1px solid orange;
+}
+
+.goods-table {
+    width: 750px;
+    border-collapse: collapse;
+}
+
+
+.goods-table td,th {  /* 这是后代选择器，只有.goods-table后面的td和th才有效果 */
+    border: 1px solid pink;
+    text-align: center;
+    font-size: 20px;
+}
+
+/* 修改id时输入框里面的文字居中 */
+.modify-pid {
+    text-align: center;
+    font-size: 8px;
+    color: orange;
+}

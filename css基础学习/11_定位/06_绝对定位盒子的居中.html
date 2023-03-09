@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            /* 绝对定位的时候 margin 左右auto不能让盒子水平居中，因为它不占位置 */
+            position: absolute;
+            left: 50%;
+            /* 那么如何让绝对定位的盒子居中呢?
+            Step1：left: 50%;  ---> 让盒子左侧移动到父级元素水平居中的位置
+            Step2：margin-left: -100px;  --->让盒子向左移动自身的一半(这里的盒子的一半是100px)
+            */
+            /* 相对定位原来盒子占据的位置还是存在的 */
+            /* position: relative; */
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            /* 标准流 margin 左右auto就可以让盒子水平居中 */
+            /* margin: auto; */
+            margin-left: -100px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

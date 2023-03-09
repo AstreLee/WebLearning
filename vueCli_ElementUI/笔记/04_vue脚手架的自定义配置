@@ -1,0 +1,21 @@
+1. 通过package.json配置项目
+    "vue:" {
+        "devServer": {
+            "port": "8888",
+            "open": true
+        }
+    }
+    在json文件中配置了这个节点后，就会自动弹开对应端口号的页面了
+    json中的所有都要打双引号
+    ps: 不推荐这种配置方式，因为package.json文件主要管理包的配置信息；为了方便维护
+        ，推荐将vue脚手架的相关配置，单独定义到vue.config.js文件中
+
+2. 单独配置文件配置项目
+    2.1 在项目的根目录中创建文件vue.config.js
+    2.2 在该文件中进行相关配置，从而覆盖默认配置
+    eg: module.exports = {
+        devServer: {
+            port: 8080,
+            open: true
+        }
+    }

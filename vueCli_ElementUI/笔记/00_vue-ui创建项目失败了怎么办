@@ -1,0 +1,4 @@
+如果vue ui通过可视化界面创建失败了
+我们就进入到项目的根目录中来
+然后删除package-lock.json文件和node_modules模块
+接着再npm install --legacy-peer-deps重新根据package.json文件安装依赖即可

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /*
+        首先on的格式:
+        $(selectorParent).on("click",selectorChildren,{"name":"nick"},function(event){
+            console.log(event.data.name);
+        })
+        on(events,[selector],[data],fn)
+        其中：events表示一个或多个用空格分隔的事件，如click,change,keydown,focus
+              selector表示选择器("字符串")，注意必须是$后面括号里面的元素的子元素
+              data: 事件被触发的时候传递给函数的参数
+              fn: 事件被触发时所执行的函数
+              PS: 这种方法可以给动态的元素绑定事件，on对同一个元素绑定很多次，事件就会
+              被触发很多次，需要用off进行解绑
+
+        而$.click只能为页面中现有的元素绑定事件，对后面动态添加的元素是没有任何事件的绑定的
+
+        而且$.on和$.click这两种方法$后面的括号里面都必须是页面加载好时就有的DOM元素
+
+        on可以实现事件委托，可以为未来创建的元素添加触发效果
+         */
+    </script>
+</head>
+<body>
+
+</body>
+</html>

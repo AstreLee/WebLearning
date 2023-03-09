@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title</title>
+    <style>
+        div {
+            width: 200px;
+            height: 100px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <script type="text/javascript">
+        // 1. 首先获取div盒子元素
+        const div1 = document.querySelector('#div1');
+        const div2 = document.querySelector('#div2');
+        // 2. 监听键盘按下事件 / 为键盘按下事件绑定方法
+        window.onkeydown = function() {
+            // 1. 首先创建xhr对象
+            const xhr = new XMLHttpRequest();
+            // 2. 然后初始化我们的xhr对象，设置请求方式和url
+            xhr.open('POST', 'http://127.0.0.1:8000/json-post');
+            // 这里直接设置响应体的内容
+            xhr.responseType = 'json';
+            // 3. 然后不带参数发送请求
+            xhr.send();
+            // 4. 然后监听readystate的值的改变
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    if (xhr.status >= 200 && xhr.status < 300) {
+                        // // 1. 手动方式将服务端传递过来的JSON字符串转化为对象
+                        // const obj = JSON.parse(xhr.response);
+                        // div1.innerText = obj.name + obj.address;
+                        // 2. 当然也可以在客户端发送请求之前就设置接收过来的形式为JSON格式
+                        // 这样的话就不用手动解析了，直接设置就可以了
+                        div2.innerText = xhr.response.name;
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

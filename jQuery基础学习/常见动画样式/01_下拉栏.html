@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        .nav {
+            margin: 100px;
+            /*
+            overflow: hidden; 这一行加上有好处也有坏处
+            好处：清除了浮动带来的影响，坏处：下拉框部分会被遮住
+            */
+        }
+
+        .nav>li {
+            position: relative;
+            float: left;
+            width: 80px;
+            height: 40px;
+            text-align: center;
+        }
+
+        .nav li a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            line-height: 40px;
+            color: black;
+        }
+
+        .nav>li>a:hover {
+            background-color: orange;
+            color: white;
+        }
+
+        .nav ul {
+            display: none;
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 100%;
+            border-left: 1px solid orange;
+            border-right: 1px solid orange;
+        }
+
+        .nav ul li {
+            border-bottom: 1px solid orange;
+        }
+
+        .nav ul li a:hover {
+            background-color: orange;
+        }
+    </style>
+    <script src="../01/jquery.min.js"></script>
+    <script>
+        $(function() {
+            $(".nav>li").hover(function() {
+                $(this).children("ul").stop().slideToggle();
+            })
+        })
+    </script>
+</head>
+<body>
+    <ul class="nav">
+        <li>
+            <a href="#">微博</a>
+            <ul>
+                <li><a href="#">私信</a></li>
+                <li><a href="#">粉丝</a></li>
+                <li><a href="#">关注我</a></li>
+                <li><a href="#">系统消息</a></li>
+                <li><a href="#">@我</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">微博</a>
+            <ul>
+                <li><a href="#">私信</a></li>
+                <li><a href="#">粉丝</a></li>
+                <li><a href="#">关注我</a></li>
+                <li><a href="#">系统消息</a></li>
+                <li><a href="#">@我</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">微博</a>
+            <ul>
+                <li><a href="#">私信</a></li>
+                <li><a href="#">粉丝</a></li>
+                <li><a href="#">关注我</a></li>
+                <li><a href="#">系统消息</a></li>
+                <li><a href="#">@我</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">微博</a>
+            <ul>
+                <li><a href="#">私信</a></li>
+                <li><a href="#">粉丝</a></li>
+                <li><a href="#">关注我</a></li>
+                <li><a href="#">系统消息</a></li>
+                <li><a href="#">@我</a></li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .login-header {
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            font-size: 24px;
+        }
+
+        .login {
+            display: none;
+            width: 512px;
+            height: 280px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            border: 1px solid white;
+            box-shadow: 0 0 20px #DDD;
+            background-color: white;
+            z-index: 9999; /* 固定定位有可能被其它元素遮挡 */
+            transform: translate(-50%, -50%);
+            /* 在使用top: 50px; left: 50px进行定位的话，用这种方式居中就很好 */
+            /* transform是css3新增加得特性，在不知道自身宽度的情况下在x和y轴方向上移动自深长度的50% */
+        }
+
+        .login-title {
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            margin: 10px 0 0 0;
+            font-size: 18px;
+            position: relative;
+            cursor: move;  /* 鼠标动态拖拽只能拖拽此区域 */
+        }
+
+        .login-title span {
+            position: absolute;
+            top: -30px;
+            right: -20px;
+            background-color: white;
+            border: 1px solid white;
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        .login-input-content {
+            margin-top: 20px;
+        }
+
+        .login-input-content label {
+            float: left;
+            width: 90px;
+            padding-right: 10px;  /* 盒子的宽度会被撑开10px */
+            height: 35px;
+            line-height: 35px;
+            text-align: right;
+            font-size: 14px;
+        }
+
+        .login-input-content input.list-input {
+            float: left;
+            height: 35px;
+            line-height: 35px;
+            width: 350px;
+            border: 1px solid white;
+            text-indent: 2px;
+        }
+
+        .login-input-content .login-input {
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .login-button {
+            width: 50%;
+            margin: 30px auto 0 auto;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 18px;
+            border: 1px solid white;
+        }
+
+        .login-button a {
+            display: block;
+        }
+
+        .login-bg {
+            display: none;
+            width: 100%;
+            height: 100%;
+            position: fixed;  /* 元素的浮动和绝对、固定定位会改变display属性 */
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, .2);
+        }
+</style>
+</head>
+<body>
+    <div class="login-header"><a href="javascript:;" class="link">点我弹出拖拽框</a></div>
+    <div class="login">
+        <div class="login-title">
+            登录会员
+            <span><a href="javascript:;" class="close-icon">关闭</a></span>
+        </div>
+        <div class="login-input-content">
+            <div class="login-input">
+                <label for="username">用户名:</label>
+                <input class="list-input" id="username" placeholder="用户名" type="text"/>
+            </div>
+            <div class="login-input">
+                <label for="password">登录密码:</label>
+                <input class="list-input" id="password" placeholder="密码" type="passeord"/>
+            </div>
+        </div>
+        <div class="login-button"><a href="javascript:;">登录</a></div>
+    </div>
+    <div class="login-bg"></div>
+    <script>
+        // 首先获取元素
+        var link = document.querySelector('.link');
+        var logins = document.querySelector('.login');
+        var mask = document.querySelector('.login-bg');
+        var close = document.querySelector('.close-icon');
+        var title = document.querySelector('.login-title');
+
+        // 1. 首先点击链接的时候mask和盒子都要出现
+        link.addEventListener('click', function() {
+            logins.style.display = 'block';
+            mask.style.display = 'block';
+        })
+
+        // 2. 点击关闭的时候mask和盒子都要隐藏
+        close.addEventListener('click', function() {
+            logins.style.display ='none';
+            mask.style.display = 'none';
+        })
+
+        // 3. 鼠标一直下压的时候触发事件
+        title.addEventListener('mousedown', function(e) {
+            // 获取鼠标距离盒子top和left的距离
+            var x = e.pageX - logins.offsetLeft;
+            var y = e.pageY - logins.offsetTop;
+            // 当鼠标移动的时候，通过鼠标距离页面的top和left距离不变设置left和top值
+            document.addEventListener('mousemove', move)
+            function move(e) {
+                logins.style.left = e.pageX - x + 'px';
+                logins.style.top = e.pageY - y + 'px';
+            }
+            // 鼠标弹起时候解绑事件
+            document.addEventListener('mouseup', function() {
+                document.removeEventListener('mousemove', move);
+            })
+        })
+    </script>
+</body>
+</html>

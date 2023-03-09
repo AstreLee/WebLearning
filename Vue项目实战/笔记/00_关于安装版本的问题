@@ -1,0 +1,9 @@
+less-loader建议安装：4.1.0
+less建议安装：3.9.0
+node建议安装：14.17.3
+vue-cli建议安装：4.5.13
+sass-loader建议安装: 8.0.2
+node-sass建议安装：4.14.1
+pnpm建议安装6.32.10
+
+如果版本不对，直接package.json文件中指定，然后删除node_modules然后重新npm install

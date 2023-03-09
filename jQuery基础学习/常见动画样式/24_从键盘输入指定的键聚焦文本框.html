@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="text" />
+    <script>
+        // 首先获取页面中的input事件
+        let input = document.querySelector('input');
+        // 给页面添加监听事件
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                input.focus();  // 聚焦我们采用focus方式
+            }
+            if (event.key === 'Backspace') {
+                input.blur();  // 失焦我们采用blur方式
+            }
+        })
+    </script>
+</body>
+</html>

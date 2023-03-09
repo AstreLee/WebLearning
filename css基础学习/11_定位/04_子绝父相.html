@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*
+        为什么要子绝父相
+        子绝是要进行绝对定位，由于不占用位置，所以可以漂在上面
+        父相是要进行相对定位，首先父必须设置定位，不然子绝对定位的时候就是以文档为标准进行移动了
+        然而父若是绝对定位的话，由于不占用位置，会影响下面的布局，所以最佳的方式就是设置相对定位
+         */
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .up {
+            position: relative;
+            width: 600px;
+            height: 100px;
+            margin: 0 auto;
+            background-color: pink;
+        }
+        .down {
+            margin: 0 auto;
+            width: 600px;
+            height: 100px;
+            background-color: orange;
+        }
+        .arr-1 {
+            position: absolute;
+            top: 15px;
+            left: 0;
+            width: 40px;
+            height: 40px;
+            background-color: purple;
+        }
+        .arr-2 {
+            position: absolute;
+            top: 15px;
+            right: 0;
+            width: 40px;
+            height: 40px;
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+    <div class="up">
+        <img src="../10_学成网/images/button.png" />
+        <div class="arr-1"></div>
+        <div class="arr-2"></div>
+    </div>
+    <div class="down"></div>
+</body>
+</html>

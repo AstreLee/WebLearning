@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var o = {};  // 创建一个空对象
+        var str = prompt("请输入字符串:");
+        for (let i = 0; i < str.length; ++i) {
+            var ch = str.charAt(i);
+            if (o[ch]) {
+                ++o[ch];
+            } else {
+                o[ch] = 1;
+            }
+        }
+        var maxCh = null;
+        var max = 0;
+        for (let k in o) {  // k是属性，o[k]是属性值
+            if (o[k] > max) {
+                max = o[k];
+                maxCh = k;
+            }
+        }
+        alert("字符串中出现次数最多的字符为:" + maxCh + ", 次数为：" + max)
+    </script>
+</head>
+<body>
+
+</body>
+</html>

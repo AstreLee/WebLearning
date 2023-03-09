@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            color: red;
+        }
+        /*
+        这里注意到尽管我们只设置了div的样式，但是由于p标签是div标签的子标签，所以也就继承
+        了父类标签的外观样式
+
+        注意：
+          > 恰当的使用继承可以简化代码，降低CSS样式的复杂性。比如有很多子标签都需要同一个
+            样式，这样我们只用给父标签一个人设置就好了，让子标签去继承父标签的特性
+          > 子元素可以继承父类的样式(text-, font-, line-这些元素开头的可以继承，以及color属性)
+         */
+    </style>
+</head>
+<body>
+    <div>
+        <p>这是一个div盒子</p>
+    </div>
+</body>
+</html>

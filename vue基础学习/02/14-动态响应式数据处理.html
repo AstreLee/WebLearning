@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for='item in list'>{{item}}</li>
+        </ul>
+        <div>
+            <div>{{info.name}}</div>
+            <div>{{info.age}}</div>
+            <div>{{info.gender}}</div>
+        </div>
+    </div>
+    <script src="js/vue.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        /*
+          动态处理响应式数据
+
+        */
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                list: ['apple', 'orange', 'banana'],
+                info: {
+                    name: '二哈',
+                    age: 12
+                }
+            },
+        });
+        // vm.list[1] = 'lemon';
+        // Vue.set(vm.list, 2, 'lemon');
+        Vue.set(vm.list, 3, 'lemon');
+        // vm.info.gender = 'male';
+        vm.$set(vm.info, 'gender', 'female');
+
+        /*
+        Vue.set([要修改的对象], [修改位置](这个位置可以超出数组的范围), ['修改后的内容'])
+        this.$set([要修改的对象], [修改位置](这个位置只能在已有的数组范围里面), ['修改后的内容'])
+        Vue.set和this.$set都是用来更新数组的，唯一的区别就是Vue.set可以用来添加属性
+        但是this.$set只能用来修改属性
+         */
+    </script>
+</body>
+</html>

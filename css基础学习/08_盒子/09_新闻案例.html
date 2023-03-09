@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*
+        为了避免一些标签自带的外边距，直接全部清零
+         */
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .box {
+            width: 298px;
+            height: 198px;
+            border: 1px solid #CCC;
+            /* 让块级元素居中 */
+            margin: 100px auto;
+            /* 如果给盒子一个padding值，会撑大盒子，所以我们去修改宽度和高度 */
+            padding: 15px;
+        }
+        /*
+        是box下面的h2
+         */
+        .box h2 {
+            font-size: 18px;
+            padding: 5px 0;
+            border-bottom: 1px solid #CCC;
+            margin-bottom: 10px;
+        }
+        /* 取消列表样式 */
+        li {
+            list-style: none;
+        }
+        .box ul li {
+            /* 这个宽度不用设置，因为父级元素会有默认的width */
+            height: 30px;
+            border-bottom: 1px dashed #CCC;
+            /* 因为没有宽度，所以我们设置padding的时候不会撑开盒子*/
+            padding-left: 20px;
+        }
+        .box ul li a {
+            color: #333;
+            font-size: 12px;
+            text-decoration: none;
+            line-height: 30px;
+        }
+        .box ul li a:hover {
+            color: blue;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>最新文章/New Articles</h2>
+        <!--
+        下面是一个列表盒子
+        -->
+        <ul>
+            <li><a href="#">前端</a></li>
+            <li><a href="#">后端</a></li>
+            <li><a href="#">云计算</a></li>
+            <li><a href="#">运维</a></li>
+            <li><a href="#">测试</a></li>
+        </ul>
+    </div>
+</body>
+</html>

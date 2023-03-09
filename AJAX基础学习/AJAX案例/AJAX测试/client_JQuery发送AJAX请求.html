@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title</title>
+</head>
+<body>
+    <div class="container">
+        <button>GET</button>
+        <button>POST</button>
+        <button>传统方法发送AJAX请求</button>
+    </div>
+    <script src="../jquery.min.js"></script>
+    <script type="text/javascript">
+        // 1. 点击GET按钮发送GET请求
+        $('button').eq(0).click(function() {
+            // 注意$和$(this)是有区别的
+            $.get('http://127.0.0.1:8000/jquery-server', {a: 100, b: 200}, function(data) {
+                console.log(data);
+            }, 'json');
+        });
+        // 2. 点击POST按钮发送POST请求
+        $('button').eq(1).click(function() {
+            $.get('http://127.0.0.1:8000/jquery-server', {a: 100, b: 200}, function(data) {
+                console.log(data);
+            });
+        })
+        // 3. 传统方式发送ajax请求
+        $('button').eq(2).click(function() {
+            $.ajax({
+                // url地址
+                url: 'http://127.0.0.1:8000/jquery-server',
+                // 传递的参数
+                data: { a: 100, b: 200 },
+                // 响应体结果
+                dataType: 'json',
+                // 成功的回调
+                success: function(data) {
+                    console.log(data)
+                },
+                // 设置超时时间
+                timeout: 2000,
+                // 失败的回调
+                error: function() {
+                    console.log('出错啦!');
+                }
+            })
+        })
+    </script>
+</body>
+</html>

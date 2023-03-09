@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /* 为什么需要溢出的文字省略号显示，因为在有些场景比如说显示网名的时候显示不全
+        就需要用省略号代替 */
+        /* 总结步骤：
+        1. 先强制一行内显示文本：white-space：nowrap;
+        2. 超出的部分隐藏：overflow：hidden
+        3. 文字省略号替代超出的部分：text-overflow：ellipsis*/
+        div {
+            width: 150px;
+            height: 25px;
+            border: 1px solid pink;
+            /* white-space中的属性值有：normal(默认属性)和nowrap(强制一行显示)
+            其中normal：如果文字显示不开的话，自动换行
+            其中nowrap：要求文字一行内显示，除非遇到<br />*/
+            white-space: nowrap;
+            /* 溢出隐藏 */
+            overflow: hidden;
+            /* 文字用省略号替代超出的部分 */
+            /* 这里面有两个属性值：clip and ellipsis
+            其中clip：不显示省略标记(...)，而是简单的裁剪
+            其中ellipsis：当对象内文本溢出时显示省略标记(...)*/
+            text-overflow: ellipsis;
+        }
+    </style>
+</head>
+<body>
+    <div>生日快乐 我对自己说 蜡烛点了 寂寞亮了</div>
+</body>
+</html>

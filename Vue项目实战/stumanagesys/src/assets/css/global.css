@@ -1,0 +1,23 @@
+html,
+body,
+#app {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+/* 可以看到面包屑导航栏距离下面的卡片视图区域还是太紧了，所以我们设置一个下外边距 */
+.el-breadcrumb {
+    margin-bottom: 15px;
+    font-size: 12px;
+}
+
+/* 可以看到导航栏和表格距离太近了 */
+.el-table {
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+.el-pagination {
+    margin-top: 10px;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .register {
+            width: 400px;
+            margin: 100px auto;
+        }
+
+        .register input {
+            width: 200px;
+            height: 20px;
+            border: none;
+            border-bottom: 1px solid #CCC;
+            outline: none;
+            color: #999;
+        }
+
+        .message {
+            font-size: 12px;
+            color: #999;
+            padding-left: 20px;  /* 这是影响不到背景的 */
+            /* 背景贴在盒子底下是不占据位置的 */
+            background: url('images/mess.png') no-repeat;
+        }
+
+        .right {
+            color: green;
+            background: url("images/right.png") no-repeat;
+        }
+
+        .wrong {
+            color: red;
+            background: url("images/wrong.png") no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <div class="register">
+        <input type="text" id="inp" />
+        <span class="message">请输入6 ~ 12位的字符</span>
+    </div>
+    <script>
+        // 首先获取事件源
+        let input = document.querySelector("#inp");
+        let message = document.querySelector("span");
+        // 绑定事件 事件处理程序
+        input.onblur = function() {
+            // 首先获取input表单控件中的内容
+            let ans = input.value;
+            // 再来判断输入内容是否满足要求
+            if (ans.length < 6 || ans.length > 12) {
+                message.className = 'message wrong';
+                message.innerText = '输入错误';
+            } else {
+                message.className = 'message right';
+                message.innerText = '输入正确';
+            }
+        }
+    </script>
+</body>
+</html>

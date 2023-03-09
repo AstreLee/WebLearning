@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .c1 .c2 div {  /* 0,0,2,1*/
+            color: red;
+        }
+        div #box3 {  /* 0,1,0,1*/
+            color: red;
+        }
+        #box1 div {  /* 0,1,0,1 和上面的权重是一样的, 权重相同，遵循就近原则*/
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1" class="c1">
+        <div id="box2" class="c2">
+            <div id="box3" class="c3">
+                这一行是什么颜色呢
+            </div>
+        </div>
+    </div>
+</body>
+</html>

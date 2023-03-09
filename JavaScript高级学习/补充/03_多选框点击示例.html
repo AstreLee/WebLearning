@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    请选择您的兴趣爱好:(可以多选)<br />
+    <input type="checkbox" value="java" name="hobby" checked="checked" /> java
+    <input type="checkbox" value="c++" name="hobby" />c++
+    <input type="checkbox" value="python" name="hobby" />python
+    <br />
+    <button class="selectAll">全选</button>
+    <button class="selectNO">全不选</button>
+
+    <script>
+        // 首先获取hobby中所有的元素
+        let hobbies = document.getElementsByName("hobby");
+        // 获取DOM树中的selectAll按钮对象
+        let all = document.getElementsByClassName("selectAll");
+        // 设置点击selectAll按钮的响应事件，注意通过数组下标来进行访问
+        all[0].onclick = function() {
+            // 对复选框中的每个元素进行遍历
+            for (let i = 0; i < hobbies.length; ++i) {
+                hobbies[i].checked = true;
+            }
+        }
+        // 获取DOM树中的selectNo按钮对象
+        let no = document.querySelector(".selectNO");
+        // 设置点击selectNo按钮的响应事件，这里选出来的是元素，不需要通过下标来进行访问
+        no.onclick = function() {
+            for (let i = 0; i < hobbies.length; ++i) {
+                hobbies[i].checked = false;
+            }
+        }
+    </script>
+</body>
+</html>

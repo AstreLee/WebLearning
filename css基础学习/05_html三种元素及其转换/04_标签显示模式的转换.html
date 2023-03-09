@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        span {
+            display: block;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+        div {
+            /*要注意了行内元素设置宽和高是没有用的*/
+            display: inline;
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+        a {
+            /* 把行内元素转换成块级元素以后，就可以设置链接的外观样式 */
+            display: block;
+            width: 200px;
+            height: 100px;
+            background-color: orange;
+            text-decoration: none;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <!--
+    1. 块转行内：  display:inline
+    2. 行内转块级：  display:block
+    3. 块级、行内元素转行内块：display:inline-block
+    -->
+    <span>行内转块级</span>
+    <span>行内转块级</span>
+
+    <div>块级元素转行内元素</div>
+    <div>块级元素转行内元素</div>
+
+    <a href="https://www.baidu.com">百度</a>
+</body>
+</html>

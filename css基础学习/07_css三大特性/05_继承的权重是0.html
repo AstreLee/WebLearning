@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            color: red;
+            font-size: 20px;
+        }
+        p {
+            color: green;
+        }
+        /*
+        因为demo没有选中p标签，所以继承的权重是0
+         */
+        .demo {
+            color: blue;
+        }
+        #test {
+            color: black;
+        }
+        /*
+        以后修改样式的时候，一定要看标签有没有选中
+        如果选中了，可以按照权重公式来计算权重
+        如果没有选中，那么权重是0，因为继承的属性是0
+         */
+    </style>
+</head>
+<body>
+    <div class="demo" id="test">
+        <p>继承的权重是0</p>
+    </div>
+</body>
+</html>
